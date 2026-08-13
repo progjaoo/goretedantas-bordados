@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@layer theme {
+  :root {
+    --color-stone-50: #f8f1e9;
+    --color-stone-100: #e2ddd9;
+    --color-stone-200: #d8c8b8;
+    --color-stone-400: #a8a39d;
+    --color-stone-700: #8d7966;
+    --color-stone-800: #4a3f35;
+    --color-stone-900: #231e1a;
+
+    --color-craft-canvas: #f8f1e9;
+    --color-craft-surface: #e2ddd9;
+    --color-craft-border: #d8c8b8;
+    --color-craft-muted: #a8a39d;
+    --color-craft-primary: #8d7966;
+    --color-craft-dark: #231e1a;
+  }
+}
+
+@theme {
+  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+
+  --color-canvas: var(--color-stone-50);
+  --color-surface: var(--color-stone-100);
+  --color-border-subtle: var(--color-stone-200);
+  --color-muted-text: var(--color-stone-400);
+  --color-primary-action: var(--color-stone-700);
+  --color-deep-dark: var(--color-stone-900);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #f8f1e9;
+  color: #231e1a;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: #f8f1e9;
+  color: #231e1a;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Editorial Styling & Shadows */
+.editorial-shadow {
+  box-shadow: 0 10px 30px -10px rgba(141, 121, 102, 0.15);
+}
+
+.editorial-shadow-hover {
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.editorial-shadow-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(141, 121, 102, 0.22);
+}
+
+.linen-texture {
+  background-image: radial-gradient(rgba(141, 121, 102, 0.08) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Smooth zoom on hover for craft images */
+.slow-zoom-container {
+  overflow: hidden;
+}
+
+.slow-zoom-image {
+  transition: transform 1200ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.slow-zoom-container:hover .slow-zoom-image {
+  transform: scale(1.05);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f1e9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d8c8b8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8d7966;
+}

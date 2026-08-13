@@ -1,0 +1,272 @@
+[
+  {
+    "id": "item-1",
+    "title": "Toalha Aveludada Pr. Genuario & Trompete Clave de Sol",
+    "category": "toalhas-religiosas",
+    "categoryLabel": "Toalhas Clérigo & Músicos",
+    "shortDescription": "Bordado nobre em veludo preto com trompete trabalhado em fios dourados e partitura musical.",
+    "fullDescription": "Toalha de lavabo de alto padrão confeccionada em veludo encorpado preto, apresentando bordado computadorizado de alta densidade de pontos. Destaque para a riqueza dos detalhes do instrumento musical em fios de poliéster trilobal dourado e acabamento de barra canelada.",
+    "image": "/images/portfolio/729005582_18386470987201125_8587120929127337570_n.jpg",
+    "isHeroFeatured": true,
+    "featuredOrder": 1,
+    "protocolNumber": "01. PROTOCOLO MINISTERIAL & MÚSICA",
+    "specifications": {
+      "tecido": "Toalha de Veludo Preto 100% Algodão Premium (480g/m²)",
+      "linha": "Fios de Poliéster Trilobal com Brilho Dourado e Prateado",
+      "acabamento": "Barra Canelada com Friso Acetinado",
+      "tamanhoAprox": "30cm x 45cm (Lavabo)",
+      "personalizacao": "Nome pastoral/musical + Instrumento à escolha"
+    },
+    "tags": [
+      "Pastor",
+      "Música",
+      "Trompete",
+      "Veludo Preto",
+      "Ouro"
+    ],
+    "createdAt": "2026-01-10T10:00:00.000Z"
+  },
+  {
+    "id": "item-2",
+    "title": "Necessaire Drielle Aventura Espacial & Alien",
+    "category": "necessaires",
+    "categoryLabel": "Necessaires & Estojos",
+    "shortDescription": "Necessaire estruturada em sintético perolado com bordado espacial e tassel verde neon.",
+    "fullDescription": "Peça exclusiva da linha divertida e infantil, confeccionada em material sintético texturizado com brilho suave e forro impermeável higienizável. O bordado conta com um simpático alienígena verde e o planeta Saturno com anéis detalhados, complementado por puxador tassel artesanal.",
+    "image": "/images/portfolio/732233796_18384835813201125_178335407050414716_n.jpg",
+    "isHeroFeatured": true,
+    "featuredOrder": 2,
+    "protocolNumber": "02. PROTOCOLO NECESSAIRE ESTRUTURADA",
+    "specifications": {
+      "tecido": "Couro Sintético Texturizado Branco Perolado com Forro Impermeável",
+      "linha": "Fios Antialérgicos de Alta Resistência",
+      "acabamento": "Zíper Reforçado Preto com Puxador Tassel Verde Neon",
+      "tamanhoAprox": "22cm x 15cm x 6cm",
+      "personalizacao": "Nome em caligrafia moderna + Tema ilustrado"
+    },
+    "tags": [
+      "Necessaire",
+      "Infantil",
+      "Espaço",
+      "Alien",
+      "Tassel"
+    ],
+    "createdAt": "2026-01-12T11:30:00.000Z"
+  },
+  {
+    "id": "item-3",
+    "title": "Kit Coordenado Luciana Floral Rosé & Menta",
+    "category": "kits-presente",
+    "categoryLabel": "Kits Coordenados",
+    "shortDescription": "Conjunto harmonioso de necessaire em couro sintético rosé e toalha menta com ramalhete de rosas.",
+    "fullDescription": "A combinação perfeita para presentear com sofisticação. Composto por uma necessaire em couro sintético tom goiaba/rosé com tipografia fluida bordada em marsala, e toalha de lavabo verde menta aveludada com guirlanda floral e borboleta bordadas em múltiplos tons.",
+    "image": "/images/portfolio/743992557_18383435056201125_2665605754153811949_n.jpg",
+    "isHeroFeatured": true,
+    "featuredOrder": 3,
+    "protocolNumber": "03. PROTOCOLO PRESENTE FINO COORDENADO",
+    "specifications": {
+      "tecido": "Toalha Verde Menta 100% Algodão + Necessaire em Sintético Nobre Rosé",
+      "linha": "Poliéster Trilobal Tons de Rosa, Marsala e Folhagens Verdes",
+      "acabamento": "Barra Canelada com Friso Prateado + Puxador Dourado",
+      "tamanhoAprox": "Toalha 30x45cm / Necessaire 20x14cm",
+      "personalizacao": "Nome coordenado em ambas as peças com o mesmo padrão"
+    },
+    "tags": [
+      "Kit Presente",
+      "Floral",
+      "Rosé",
+      "Menta",
+      "Feminino"
+    ],
+    "createdAt": "2026-01-15T14:00:00.000Z"
+  },
+  {
+    "id": "item-4",
+    "title": "Duo Casal Pr. Lúcio & Claudia com Renda e Passa-Fita",
+    "category": "toalhas-monograma",
+    "categoryLabel": "Monogramas & Casais",
+    "shortDescription": "Par de toalhas brancas com monogramas em marsala nobre, renda guipir e fita de cetim bordada.",
+    "fullDescription": "Conjunto de gala para bodas, casamentos ou presentes clericais. Duas toalhas de banho/lavabo em algodão felpudo branco, adornadas com monogramas monumentais 'L' e 'C' com tipografia manuscrita cursiva sobreposta em tom vinho/marsala. O acabamento inferior conta com renda richelieu/guipir e entremeio passa-fita de cetim.",
+    "image": "/images/portfolio/747307021_18383775046201125_933781682480581784_n.jpg",
+    "isHeroFeatured": true,
+    "featuredOrder": 4,
+    "protocolNumber": "04. PROTOCOLO BODAS & CASAL",
+    "specifications": {
+      "tecido": "100% Algodão Premium Felpudo de Alta Absorção Branco",
+      "linha": "Trilobal Marsala Profundo e Vinho Imperial",
+      "acabamento": "Barra de Renda Richelieu Bordada com Passa-Fita de Cetim Marsala",
+      "tamanhoAprox": "30cm x 50cm (Par de Lavabo)",
+      "personalizacao": "Iniciais gigantes + Nomes completos do casal"
+    },
+    "tags": [
+      "Casal",
+      "Bodas",
+      "Monograma",
+      "Marsala",
+      "Renda Guipir"
+    ],
+    "createdAt": "2026-01-18T16:20:00.000Z"
+  },
+  {
+    "id": "item-5",
+    "title": "Necessaire Masculina Estojo Tio Genivaldo Couro Preto",
+    "category": "necessaires",
+    "categoryLabel": "Necessaires & Estojos",
+    "shortDescription": "Estojo masculino formato baú em couro sintético preto com alça lateral e bordado ouro velho.",
+    "fullDescription": "Desenvolvida especialmente para o público masculino ou viagens, esta necessaire em formato baú retangular oferece amplo espaço interno. Produzida em couro sintético premium preto com textura granulada elegante, forro impermeável higiênico, zíper metálico dourado e alça de mão reforçada.",
+    "image": "/images/portfolio/760160458_18385619122201125_1061626929128024874_n.jpg",
+    "isHeroFeatured": false,
+    "featuredOrder": 5,
+    "protocolNumber": "02. PROTOCOLO MASCULINO EXECUTIVO",
+    "specifications": {
+      "tecido": "Couro Sintético Texturizado Preto com Forro Lavável",
+      "linha": "Fio Metálico Ouro Velho de Alto Brilho",
+      "acabamento": "Zíper Dourado de Alta Durabilidade com Alça Lateral em Gorgurão",
+      "tamanhoAprox": "24cm x 12cm x 10cm",
+      "personalizacao": "Nome ou Iniciais masculinas bordadas"
+    },
+    "tags": [
+      "Masculino",
+      "Couro Preto",
+      "Dourado",
+      "Viagem",
+      "Estojo"
+    ],
+    "createdAt": "2026-01-20T09:00:00.000Z"
+  },
+  {
+    "id": "item-6",
+    "title": "Dupla Enxoval Bebê Isaac Safari & Trenzinho dos Bichos",
+    "category": "linha-bebe",
+    "categoryLabel": "Linha Bebê & Infantil",
+    "shortDescription": "Duas toalhinhas de bebê em tons creme e azul bebê com jipe de safari, leãozinho, girafa e trenzinho.",
+    "fullDescription": "Uma obra de arte para a chegada do bebê! Dupla de toalhinhas felpudas super macias, com bordados lúdicos em ponto cheio: na toalha creme, um jipe de safari com girafinha, zebra e leãozinho; na toalha azul, um trenzinho com ursinho, leão e elefantinho. Ambas finalizadas com renda delicada e fita de cetim acetinada.",
+    "image": "/images/portfolio/763277107_18386604337201125_1248489707961627681_n.jpg",
+    "isHeroFeatured": true,
+    "featuredOrder": 6,
+    "protocolNumber": "05. PROTOCOLO ENXOVAL INFANTIL AFETIVO",
+    "specifications": {
+      "tecido": "Toalhas Felpudas Algodão Macio Antialérgico (Creme Suave e Azul Céu)",
+      "linha": "Fios 100% Antialérgicos Toque Suave",
+      "acabamento": "Renda Inglesa Trabalhada com Passa-Fita de Cetim Coordenada",
+      "tamanhoAprox": "30cm x 45cm (Kit com 2 unidades)",
+      "personalizacao": "Nome do bebê bordado + Tema lúdico à escolha"
+    },
+    "tags": [
+      "Bebê",
+      "Maternidade",
+      "Safari",
+      "Trenzinho",
+      "Enxoval"
+    ],
+    "createdAt": "2026-01-22T15:10:00.000Z"
+  },
+  {
+    "id": "item-7",
+    "title": "Toalha Serena Jardim Rubi & Borboletas Bordadas",
+    "category": "toalhas-monograma",
+    "categoryLabel": "Monogramas & Casais",
+    "shortDescription": "Toalha de veludo vermelho rubi com jardim primaveril bordado e borboletas em relevo.",
+    "fullDescription": "Uma peça vibrante e sofisticada que transforma qualquer lavabo. Em veludo vermelho rubi intenso, traz o nome em caligrafia cursiva branca sobre um jardim de flores em ponto rococó e 4 borboletas bordadas em tons perolados e rosados.",
+    "image": "/images/portfolio/768592666_18387054391201125_7076797443361234123_n.jpg",
+    "isHeroFeatured": false,
+    "featuredOrder": 7,
+    "protocolNumber": "01. PROTOCOLO JARDIM BOTÂNICO",
+    "specifications": {
+      "tecido": "Veludo Canelado Vermelho Rubi 100% Algodão",
+      "linha": "Poliéster Branco Neve, Rosa Chá e Verde Musgo",
+      "acabamento": "Barra Canelada com Friso de Alta Gramatura",
+      "tamanhoAprox": "30cm x 50cm",
+      "personalizacao": "Nome caligráfico + Jardim floral personalizado"
+    },
+    "tags": [
+      "Vermelho",
+      "Veludo",
+      "Borboletas",
+      "Jardim",
+      "Feminino"
+    ],
+    "createdAt": "2026-01-25T17:30:00.000Z"
+  },
+  {
+    "id": "item-8",
+    "title": "Toalha Monograma Serena Rococó & Turquesa Imperial",
+    "category": "toalhas-monograma",
+    "categoryLabel": "Monogramas & Casais",
+    "shortDescription": "Monograma floral clássico com letra 'S' em turquesa texturizado e arranjo de rosas nobres.",
+    "fullDescription": "O ápice da elegância clássica. Toalha branca canelada com monograma monumental bordado em ponto esteira turquesa com textura geométrica, entrelaçado por um delicado buquê de rosas em tons de coral, magenta e folhagens botânicas. Detalhe de friso prateado na barra.",
+    "image": "/images/portfolio/768970081_18387233296201125_7332778354247722145_n.jpg",
+    "isHeroFeatured": true,
+    "featuredOrder": 8,
+    "protocolNumber": "01. PROTOCOLO MONOGRAMA DE LUXO",
+    "specifications": {
+      "tecido": "100% Algodão Branco Macio Toque Pluma (500g/m²)",
+      "linha": "Poliéster Turquesa Brilhante, Coral e Tons Rosas",
+      "acabamento": "Friso Prateado com Textura Canelada",
+      "tamanhoAprox": "30cm x 45cm",
+      "personalizacao": "Inicial monumental estilizada + Nome completo manuscrito"
+    },
+    "tags": [
+      "Monograma",
+      "Turquesa",
+      "Rosas",
+      "Luxo",
+      "Branco"
+    ],
+    "createdAt": "2026-01-28T10:45:00.000Z"
+  },
+  {
+    "id": "item-9",
+    "title": "Toalha Azul Serenity Pr. Valdemiro Ramos de Louro",
+    "category": "toalhas-religiosas",
+    "categoryLabel": "Toalhas Clérigo & Músicos",
+    "shortDescription": "Toalha aveludada azul serenidade com monograma 'V' e ramo de louro bordado em fios prateados.",
+    "fullDescription": "Elegância sóbria em azul serene. Confeccionada com barra aveludada e detalhes prateados, esta toalha pastoral traz a letra monumental 'V' adornada com ramos de louro em relevo prateado acetinado, acompanhada do título ministerial em azul marinho profundo.",
+    "image": "/images/portfolio/771495711_18387394735201125_2168758493654067376_n.jpg",
+    "isHeroFeatured": false,
+    "featuredOrder": 9,
+    "protocolNumber": "01. PROTOCOLO SOLEMNIDADE MINISTERIAL",
+    "specifications": {
+      "tecido": "Algodão Aveludado Azul Serenity (480g/m²)",
+      "linha": "Azul Marinho Real e Prata Acetinada Trilobal",
+      "acabamento": "Barra com Friso Prateado Metálico",
+      "tamanhoAprox": "30cm x 45cm",
+      "personalizacao": "Título e nome pastoral + Monograma com louros"
+    },
+    "tags": [
+      "Pastor",
+      "Azul",
+      "Monograma",
+      "Louros",
+      "Prata"
+    ],
+    "createdAt": "2026-01-30T13:15:00.000Z"
+  },
+  {
+    "id": "item-10",
+    "title": "Toalha Temática Fluminense FC Inglen Fiel & Tridimensional",
+    "category": "tematicas",
+    "categoryLabel": "Temáticas & Clubes",
+    "shortDescription": "Toalha em tom areia sofisticado com escudo bordado de alta definição do Fluminense e nome personalizado.",
+    "fullDescription": "A paixão pelo futebol com o acabamento nobre do ateliê. Em toalha aveludada cor fendi/areia com friso metálico dourado, apresenta o escudo do Fluminense Football Club bordado com matriz de alta precisão de pontos nas cores oficiais (grená, verde e branco), acompanhado pelo nome bordado em relevo acetinado.",
+    "image": "/images/portfolio/772656565_18387719002201125_7848601706314757776_n.jpg",
+    "isHeroFeatured": true,
+    "featuredOrder": 10,
+    "protocolNumber": "06. PROTOCOLO CLUBES & EDIÇÕES ESPECIAIS",
+    "specifications": {
+      "tecido": "Toalha 100% Algodão Tom Areia/Fendi Nobre",
+      "linha": "Poliéster Grená, Verde Bandeira e Branco Neve",
+      "acabamento": "Barra Canelada com Friso Geométrico Ouro Suave",
+      "tamanhoAprox": "30cm x 50cm",
+      "personalizacao": "Escudo do clube + Nome do torcedor"
+    },
+    "tags": [
+      "Fluminense",
+      "Futebol",
+      "Areia",
+      "Escudo",
+      "Presente"
+    ],
+    "createdAt": "2026-02-02T16:00:00.000Z"
+  }
+]

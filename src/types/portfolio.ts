@@ -1,10 +1,13 @@
-export type ProductCategory = 
-  | 'toalhas-monograma'
-  | 'toalhas-religiosas'
-  | 'necessaires'
-  | 'linha-bebe'
-  | 'kits-presente'
-  | 'tematicas';
+export type ProductCategory = string;
+
+export interface CategoryItem {
+  id: string;
+  label: string;
+  tag: string;
+  description: string;
+  icon: string;
+  order?: number;
+}
 
 export interface CraftSpecification {
   tecido: string;

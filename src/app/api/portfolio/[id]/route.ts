@@ -1,3 +1,4 @@
+import { getCategoriesAsync } from "@/data/categoriesStore";
 import { deletePortfolioItem, updatePortfolioItem } from "@/data/portfolioStore";
 import { isAuthenticated } from "@/lib/auth";
 import { NextRequest, NextResponse } from "next/server";
@@ -14,6 +15,14 @@ export async function PUT(
 
     const { id } = await params;
     const body = await req.json();
+
+    if (body.category && !body.categoryLabel) {
+      const categories = await getCategoriesAsync();
+      const found = categories.find((c) => c.id === body.category);
+      if (found) {
+        body.categoryLabel = found.label;
+      }
+    }
 
     const updated = await updatePortfolioItem(id, body);
     if (!updated) {

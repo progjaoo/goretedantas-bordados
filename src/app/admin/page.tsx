@@ -1,3 +1,4 @@
+import { getCategoriesAsync } from "@/data/categoriesStore";
 import { getPortfolioItemsAsync } from "@/data/portfolioStore";
 import { isAuthenticated } from "@/lib/auth";
 import { redirect } from "next/navigation";
@@ -11,7 +12,15 @@ export default async function AdminPage() {
     redirect("/admin/login");
   }
 
-  const items = await getPortfolioItemsAsync();
+  const [items, categories] = await Promise.all([
+    getPortfolioItemsAsync(),
+    getCategoriesAsync(),
+  ]);
 
-  return <AdminDashboardClient initialItems={items} />;
+  return (
+    <AdminDashboardClient
+      initialItems={items}
+      initialCategories={categories}
+    />
+  );
 }

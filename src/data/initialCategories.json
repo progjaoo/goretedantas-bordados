@@ -1,0 +1,50 @@
+[
+  {
+    "id": "toalhas-monograma",
+    "label": "Monogramas & Casais",
+    "tag": "Luxo & Bodas",
+    "description": "Toalhas de banho e lavabo com brasões bordados, flores nobres e rendas finas.",
+    "icon": "Crown",
+    "order": 1
+  },
+  {
+    "id": "necessaires",
+    "label": "Necessaires & Estojos",
+    "tag": "Couro Sintético",
+    "description": "Peças estruturadas, forro impermeável higienizável e personalização com nomes em relevo.",
+    "icon": "ShoppingBag",
+    "order": 2
+  },
+  {
+    "id": "linha-bebe",
+    "label": "Linha Bebê & Infantil",
+    "tag": "Enxoval Afetivo",
+    "description": "Bordados antialérgicos com temas encantadores: Safari, Trenzinho, Bichinhos e Nuvens.",
+    "icon": "Baby",
+    "order": 3
+  },
+  {
+    "id": "kits-presente",
+    "label": "Kits Coordenados",
+    "tag": "Toalha + Necessaire",
+    "description": "Combinações harmônicas de toalha de veludo e necessaire coordenadas para presentes inesquecíveis.",
+    "icon": "Sparkles",
+    "order": 4
+  },
+  {
+    "id": "toalhas-religiosas",
+    "label": "Toalhas Clérigo & Músicos",
+    "tag": "Clássicos & Solenes",
+    "description": "Títulos pastorais, instrumentos musicais em fios metalizados dourados e monogramas distintos.",
+    "icon": "Music",
+    "order": 5
+  },
+  {
+    "id": "tematicas",
+    "label": "Temáticas & Clubes",
+    "tag": "Edições Especiais",
+    "description": "Escudos de futebol, hobbies e brasões bordados com alta fidelidade de pontos.",
+    "icon": "Shield",
+    "order": 6
+  }
+]

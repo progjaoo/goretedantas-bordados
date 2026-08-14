@@ -11,14 +11,18 @@ import RegimenSelector from "@/components/site/RegimenSelector";
 import SafetyFAQSection from "@/components/site/SafetyFAQSection";
 import TopReassuranceStrip from "@/components/site/TopReassuranceStrip";
 import UsageTimeline from "@/components/site/UsageTimeline";
-import { PortfolioItem } from "@/types/portfolio";
+import { CategoryItem, PortfolioItem } from "@/types/portfolio";
 import { useMemo, useState } from "react";
 
 interface LandingPageClientProps {
   initialItems: PortfolioItem[];
+  categories: CategoryItem[];
 }
 
-export default function LandingPageClient({ initialItems }: LandingPageClientProps) {
+export default function LandingPageClient({
+  initialItems,
+  categories,
+}: LandingPageClientProps) {
   const [items, setItems] = useState<PortfolioItem[]>(initialItems);
   const [selectedCategory, setSelectedCategory] = useState<string>("todos");
   const [activeLightboxItem, setActiveLightboxItem] = useState<PortfolioItem | null>(null);
@@ -39,10 +43,10 @@ export default function LandingPageClient({ initialItems }: LandingPageClientPro
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f8f1e9] text-[#231e1a] selection:bg-[#8d7966]/20 selection:text-[#231e1a]">
-      {/* 1. Top Reassurance Strip (Height 40px, Stone 100 bg) */}
+      {/* 1. Top Reassurance Strip */}
       <TopReassuranceStrip />
 
-      {/* 2. Sticky Header (Height 96px, 90% opacity with backdrop blur) */}
+      {/* 2. Sticky Header */}
       <Header />
 
       {/* 3. Main Content Flow */}
@@ -53,8 +57,9 @@ export default function LandingPageClient({ initialItems }: LandingPageClientPro
           onOpenLightbox={(item) => setActiveLightboxItem(item)}
         />
 
-        {/* Regimen Selector Bento Grid (5 curated categories across) */}
+        {/* Regimen Selector Bento Grid (Dynamic Categories) */}
         <RegimenSelector
+          categories={categories}
           selectedCategory={selectedCategory}
           onSelectCategory={handleSelectCategory}
         />
@@ -62,6 +67,7 @@ export default function LandingPageClient({ initialItems }: LandingPageClientPro
         {/* Product Protocol Deep Dive & Interactive Catalog Grid */}
         <ProductProtocolSection
           items={items}
+          categories={categories}
           selectedCategory={selectedCategory}
           onSelectCategory={setSelectedCategory}
           onOpenLightbox={(item) => setActiveLightboxItem(item)}
@@ -70,10 +76,10 @@ export default function LandingPageClient({ initialItems }: LandingPageClientPro
         {/* 3-Stage Process Timeline */}
         <UsageTimeline />
 
-        {/* Quality & Trust Manifesto (Full-bleed 2-column dark theme) */}
+        {/* Quality & Trust Manifesto */}
         <QualityTrustSection />
 
-        {/* Safety & FAQ Section (5 cols Safety + 7 cols Accordion FAQ) */}
+        {/* Safety & FAQ Section */}
         <SafetyFAQSection />
       </main>
 

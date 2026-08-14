@@ -1,15 +1,15 @@
 "use client";
 
 import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
-import { CATEGORIES } from "@/lib/constants";
 import { buildProductWhatsAppUrl } from "@/lib/utils";
-import { PortfolioItem } from "@/types/portfolio";
+import { CategoryItem, PortfolioItem } from "@/types/portfolio";
 import { ArrowRight, Eye } from "lucide-react";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 
 interface ProductProtocolSectionProps {
   items: PortfolioItem[];
+  categories: CategoryItem[];
   selectedCategory: string;
   onSelectCategory: (cat: string) => void;
   onOpenLightbox: (item: PortfolioItem) => void;
@@ -17,6 +17,7 @@ interface ProductProtocolSectionProps {
 
 export default function ProductProtocolSection({
   items,
+  categories,
   selectedCategory,
   onSelectCategory,
   onOpenLightbox,
@@ -54,7 +55,7 @@ export default function ProductProtocolSection({
           </div>
         </div>
 
-        {/* Filter Navigation Bar - Mobile-first horizontal scroll with hidden scrollbar */}
+        {/* Filter Navigation Bar - Dynamic categories from store */}
         <div
           id="galeria"
           className="mb-8 sm:mb-12 flex items-center gap-2 overflow-x-auto p-1.5 sm:p-2 bg-[#e2ddd9]/60 rounded-[10px] border border-[#d8c8b8] -mx-4 px-4 sm:mx-0 no-scrollbar"
@@ -69,7 +70,7 @@ export default function ProductProtocolSection({
           >
             Todos os Trabalhos
           </button>
-          {CATEGORIES.map((cat) => (
+          {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => onSelectCategory(cat.id)}

@@ -1,36 +1,19 @@
 "use client";
 
-import { CATEGORIES } from "@/lib/constants";
-import { Baby, Crown, Music, Shield, ShoppingBag, Sparkles } from "lucide-react";
+import CategoryIcon from "@/components/ui/CategoryIcon";
+import { CategoryItem } from "@/types/portfolio";
 
 interface RegimenSelectorProps {
+  categories: CategoryItem[];
   selectedCategory: string;
   onSelectCategory: (category: string) => void;
 }
 
 export default function RegimenSelector({
+  categories,
   selectedCategory,
   onSelectCategory,
 }: RegimenSelectorProps) {
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case "Crown":
-        return <Crown className="w-5 h-5" />;
-      case "ShoppingBag":
-        return <ShoppingBag className="w-5 h-5" />;
-      case "Baby":
-        return <Baby className="w-5 h-5" />;
-      case "Sparkles":
-        return <Sparkles className="w-5 h-5" />;
-      case "Music":
-        return <Music className="w-5 h-5" />;
-      case "Shield":
-        return <Shield className="w-5 h-5" />;
-      default:
-        return <Sparkles className="w-5 h-5" />;
-    }
-  };
-
   return (
     <section id="colecoes" className="w-full py-12 sm:py-16 lg:py-24 bg-[#f8f1e9] border-t border-[#e2ddd9]/80">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
@@ -49,9 +32,9 @@ export default function RegimenSelector({
           </p>
         </div>
 
-        {/* Responsive Bento Grid - 1 col on XS, 2 col on SM, 3 col on LG, 6 col on 2XL */}
+        {/* Responsive Bento Grid */}
         <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3.5 sm:gap-5">
-          {CATEGORIES.map((cat) => {
+          {categories.map((cat) => {
             const isFeatured = selectedCategory === cat.id;
 
             return (
@@ -73,7 +56,7 @@ export default function RegimenSelector({
                         : "bg-[#e2ddd9] text-[#4a3f35]"
                     }`}
                   >
-                    {getIcon(cat.icon)}
+                    <CategoryIcon iconName={cat.icon} className="w-5 h-5" />
                   </div>
                   <span
                     className={`text-[9px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full ${
@@ -82,7 +65,7 @@ export default function RegimenSelector({
                         : "bg-[#e2ddd9]/70 text-[#4a3f35] border border-[#d8c8b8]/50"
                     }`}
                   >
-                    {cat.tag}
+                    {cat.tag || "Linha"}
                   </span>
                 </div>
 

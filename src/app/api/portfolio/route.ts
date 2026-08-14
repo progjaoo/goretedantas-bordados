@@ -1,3 +1,4 @@
+import { getCategoriesAsync } from "@/data/categoriesStore";
 import { addPortfolioItem, getPortfolioItemsAsync } from "@/data/portfolioStore";
 import { isAuthenticated } from "@/lib/auth";
 import { NextRequest, NextResponse } from "next/server";
@@ -37,11 +38,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Título, categoria e imagem são obrigatórios" }, { status: 400 });
     }
 
+    let categoryLabel = body.categoryLabel;
+    if (!categoryLabel) {
+      const categories = await getCategoriesAsync();
+      const found = categories.find((c) => c.id === body.category);
+      categoryLabel = found?.label || "Bordado Personalizado";
+    }
+
     const newItem = await addPortfolioItem({
       title: body.title,
       category: body.category,
-      categoryLabel: body.categoryLabel || "Bordado Personalizado",
-      shortDescription: body.shortDescription || "",
+      categoryLabel,
+      shortDescription: body.shortDescription || "Peça personalizada bordada com acabamento fino.",
       fullDescription: body.fullDescription || body.shortDescription || "",
       image: body.image,
       isHeroFeatured: Boolean(body.isHeroFeatured),

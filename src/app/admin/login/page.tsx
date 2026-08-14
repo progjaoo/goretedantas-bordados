@@ -89,7 +89,6 @@ export default function AdminLoginPage() {
               required
               autoComplete="username"
               className="w-full px-4 py-3 rounded-md bg-[#f8f1e9] border border-[#d8c8b8] text-sm text-[#231e1a] focus:outline-none focus:border-[#8d7966] focus:ring-1 focus:ring-[#8d7966]"
-              placeholder="Digite seu usuário"
             />
           </div>
 
@@ -104,7 +103,6 @@ export default function AdminLoginPage() {
               required
               autoComplete="current-password"
               className="w-full px-4 py-3 rounded-md bg-[#f8f1e9] border border-[#d8c8b8] text-sm text-[#231e1a] focus:outline-none focus:border-[#8d7966] focus:ring-1 focus:ring-[#8d7966]"
-              placeholder="••••••••"
             />
           </div>
 

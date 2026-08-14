@@ -1,13 +1,14 @@
 import { PortfolioItem } from "@/types/portfolio";
-import { put } from "@vercel/blob";
+import { list, put } from "@vercel/blob";
 import fs from "fs";
 import path from "path";
 import initialPortfolio from "./initialPortfolio.json";
 
 const DATA_FILE_PATH = path.join(process.cwd(), "src/data/portfolioData.json");
 
-// In-memory cache for serverless invocations
+// In-memory cache for serverless instances
 let memoryCache: PortfolioItem[] | null = null;
+let blobSynced = false;
 
 function ensureDataFile() {
   try {
@@ -19,8 +20,29 @@ function ensureDataFile() {
       fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(initialPortfolio, null, 2), "utf-8");
     }
   } catch (err) {
-    // In serverless environments fs write might be disabled, so we rely on memory/Blob
+    // In serverless environments fs write might be disabled
   }
+}
+
+export async function syncFromVercelBlob(): Promise<PortfolioItem[] | null> {
+  if (!process.env.BLOB_READ_WRITE_TOKEN) return null;
+  try {
+    const { blobs } = await list({ prefix: "data/portfolioData.json" });
+    if (blobs.length > 0) {
+      const res = await fetch(blobs[0].url, { cache: "no-store" });
+      if (res.ok) {
+        const data = (await res.json()) as PortfolioItem[];
+        if (Array.isArray(data) && data.length > 0) {
+          memoryCache = data;
+          blobSynced = true;
+          return data;
+        }
+      }
+    }
+  } catch (err) {
+    console.error("Error syncing portfolio from Vercel Blob:", err);
+  }
+  return null;
 }
 
 export function getPortfolioItems(): PortfolioItem[] {
@@ -45,7 +67,15 @@ export function getPortfolioItems(): PortfolioItem[] {
   return memoryCache;
 }
 
-export function savePortfolioItems(items: PortfolioItem[]): boolean {
+export async function getPortfolioItemsAsync(): Promise<PortfolioItem[]> {
+  if (!blobSynced && process.env.BLOB_READ_WRITE_TOKEN) {
+    const fromBlob = await syncFromVercelBlob();
+    if (fromBlob) return fromBlob;
+  }
+  return getPortfolioItems();
+}
+
+export async function savePortfolioItems(items: PortfolioItem[]): Promise<boolean> {
   memoryCache = items;
 
   // 1. Try local filesystem (development)
@@ -60,46 +90,49 @@ export function savePortfolioItems(items: PortfolioItem[]): boolean {
 
   // 2. Try Vercel Blob persistence (production on Vercel)
   if (process.env.BLOB_READ_WRITE_TOKEN) {
-    put("data/portfolioData.json", JSON.stringify(items, null, 2), {
-      access: "public",
-      addRandomSuffix: false,
-    }).catch((err) => {
+    try {
+      await put("data/portfolioData.json", JSON.stringify(items, null, 2), {
+        access: "public",
+        addRandomSuffix: false,
+      });
+      blobSynced = true;
+    } catch (err) {
       console.error("Error saving portfolio data to Vercel Blob:", err);
-    });
+    }
   }
 
   return true;
 }
 
-export function addPortfolioItem(item: Omit<PortfolioItem, "id" | "createdAt">): PortfolioItem {
-  const items = [...getPortfolioItems()];
+export async function addPortfolioItem(item: Omit<PortfolioItem, "id" | "createdAt">): Promise<PortfolioItem> {
+  const currentItems = await getPortfolioItemsAsync();
   const newItem: PortfolioItem = {
     ...item,
     id: `item-${Date.now()}`,
     createdAt: new Date().toISOString(),
   };
-  items.unshift(newItem);
-  savePortfolioItems(items);
+  const updatedList = [newItem, ...currentItems];
+  await savePortfolioItems(updatedList);
   return newItem;
 }
 
-export function updatePortfolioItem(id: string, updates: Partial<PortfolioItem>): PortfolioItem | null {
-  const items = [...getPortfolioItems()];
-  const index = items.findIndex((i) => i.id === id);
+export async function updatePortfolioItem(id: string, updates: Partial<PortfolioItem>): Promise<PortfolioItem | null> {
+  const currentItems = await getPortfolioItemsAsync();
+  const index = currentItems.findIndex((i) => i.id === id);
   if (index === -1) return null;
 
-  items[index] = {
-    ...items[index],
+  currentItems[index] = {
+    ...currentItems[index],
     ...updates,
   };
-  savePortfolioItems(items);
-  return items[index];
+  await savePortfolioItems(currentItems);
+  return currentItems[index];
 }
 
-export function deletePortfolioItem(id: string): boolean {
-  const items = getPortfolioItems();
-  const filtered = items.filter((i) => i.id !== id);
-  if (filtered.length === items.length) return false;
-  savePortfolioItems(filtered);
+export async function deletePortfolioItem(id: string): Promise<boolean> {
+  const currentItems = await getPortfolioItemsAsync();
+  const filtered = currentItems.filter((i) => i.id !== id);
+  if (filtered.length === currentItems.length) return false;
+  await savePortfolioItems(filtered);
   return true;
 }

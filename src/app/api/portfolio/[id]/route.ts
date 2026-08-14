@@ -15,7 +15,7 @@ export async function PUT(
     const { id } = await params;
     const body = await req.json();
 
-    const updated = updatePortfolioItem(id, body);
+    const updated = await updatePortfolioItem(id, body);
     if (!updated) {
       return NextResponse.json({ error: "Item não encontrado" }, { status: 404 });
     }
@@ -38,7 +38,7 @@ export async function DELETE(
     }
 
     const { id } = await params;
-    const deleted = deletePortfolioItem(id);
+    const deleted = await deletePortfolioItem(id);
 
     if (!deleted) {
       return NextResponse.json({ error: "Item não encontrado para exclusão" }, { status: 404 });

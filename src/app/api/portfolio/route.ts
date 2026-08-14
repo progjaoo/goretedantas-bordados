@@ -1,4 +1,4 @@
-import { addPortfolioItem, getPortfolioItems } from "@/data/portfolioStore";
+import { addPortfolioItem, getPortfolioItemsAsync } from "@/data/portfolioStore";
 import { isAuthenticated } from "@/lib/auth";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
     const category = searchParams.get("category");
     const heroOnly = searchParams.get("hero") === "true";
 
-    let items = getPortfolioItems();
+    let items = await getPortfolioItemsAsync();
 
     if (category && category !== "todos") {
       items = items.filter((i) => i.category === category);
@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Título, categoria e imagem são obrigatórios" }, { status: 400 });
     }
 
-    const newItem = addPortfolioItem({
+    const newItem = await addPortfolioItem({
       title: body.title,
       category: body.category,
       categoryLabel: body.categoryLabel || "Bordado Personalizado",

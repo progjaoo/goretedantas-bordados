@@ -7,16 +7,16 @@ import { Heart, Sparkles } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#231e1a] text-[#f8f1e9] border-t border-white/10 pt-16 pb-12">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-white/10">
+    <footer className="w-full bg-[#231e1a] text-[#f8f1e9] border-t border-white/10 pt-12 sm:pt-16 pb-10 sm:pb-12">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-12 pb-10 sm:pb-14 border-b border-white/10">
           {/* Brand Info (4 cols) */}
-          <div className="lg:col-span-4 flex flex-col space-y-4">
+          <div className="lg:col-span-4 flex flex-col space-y-3.5">
             <div className="flex items-center space-x-3">
-              <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-[#d8c8b8]">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 flex items-center justify-center text-[#d8c8b8]">
                 <Sparkles className="w-4 h-4" />
               </div>
-              <span className="font-serif text-2xl font-medium tracking-tight text-white">
+              <span className="font-serif text-xl sm:text-2xl font-medium tracking-tight text-white">
                 Ateliê Gorete
               </span>
             </div>
@@ -24,13 +24,14 @@ export default function Footer() {
               Bordados computadorizados e artesanais confeccionados com rigor, afeto e matérias-primas
               nobres. Toalhas de banho, necessaires e enxovais personalizados sob medida.
             </p>
-            <div className="flex items-center space-x-3 pt-2">
+            <div className="flex items-center space-x-3 pt-1">
               <a
                 href={buildWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#8d7966] flex items-center justify-center text-[#f8f1e9] transition-colors"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#8d7966] active:scale-95 flex items-center justify-center text-[#f8f1e9] transition-colors"
                 title="WhatsApp Ateliê Gorete"
+                aria-label="WhatsApp"
               >
                 <WhatsAppIcon className="w-4 h-4 text-white" />
               </a>
@@ -38,8 +39,9 @@ export default function Footer() {
                 href={SITE_CONFIG.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#8d7966] flex items-center justify-center text-[#f8f1e9] transition-colors"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#8d7966] active:scale-95 flex items-center justify-center text-[#f8f1e9] transition-colors"
                 title="Instagram @goretedantasbordados"
+                aria-label="Instagram"
               >
                 <svg
                   className="w-4 h-4 fill-current"
@@ -53,33 +55,33 @@ export default function Footer() {
           </div>
 
           {/* Quick Links (4 cols) */}
-          <div className="lg:col-span-4 flex flex-col space-y-3 text-xs">
+          <div className="lg:col-span-4 flex flex-col space-y-2.5 text-xs">
             <span className="font-mono text-[10px] uppercase tracking-widest text-[#d8c8b8] font-semibold mb-1">
               NAVEGAÇÃO RÁPIDA
             </span>
-            <a href="#colecoes" className="text-[#e2ddd9]/80 hover:text-white transition-colors">
+            <a href="#colecoes" className="text-[#e2ddd9]/80 hover:text-white py-0.5 transition-colors">
               Coleções & Linhas
             </a>
-            <a href="#protocolos" className="text-[#e2ddd9]/80 hover:text-white transition-colors">
-              Protocolos de Confecção
-            </a>
-            <a href="#galeria" className="text-[#e2ddd9]/80 hover:text-white transition-colors">
+            <a href="#protocolos" className="text-[#e2ddd9]/80 hover:text-white py-0.5 transition-colors">
               Catálogo de Peças
             </a>
-            <a href="#como-funciona" className="text-[#e2ddd9]/80 hover:text-white transition-colors">
+            <a href="#atelie" className="text-[#e2ddd9]/80 hover:text-white py-0.5 transition-colors">
+              O Ateliê
+            </a>
+            <a href="#como-funciona" className="text-[#e2ddd9]/80 hover:text-white py-0.5 transition-colors">
               Como Encomendar
             </a>
-            <a href="#faq" className="text-[#e2ddd9]/80 hover:text-white transition-colors">
+            <a href="#faq" className="text-[#e2ddd9]/80 hover:text-white py-0.5 transition-colors">
               Dúvidas Frequentes
             </a>
           </div>
 
           {/* Contact & Orders (4 cols) */}
-          <div className="lg:col-span-4 flex flex-col space-y-3 text-xs">
+          <div className="lg:col-span-4 flex flex-col space-y-2.5 text-xs">
             <span className="font-mono text-[10px] uppercase tracking-widest text-[#d8c8b8] font-semibold mb-1">
               CONTATO & ENCOMENDAS
             </span>
-            <p className="text-[#e2ddd9]/80">
+            <p className="text-[#e2ddd9]/80 leading-relaxed">
               <strong className="text-white font-medium block">WhatsApp Direto:</strong>
               <a
                 href={buildWhatsAppUrl()}
@@ -88,11 +90,11 @@ export default function Footer() {
                 {SITE_CONFIG.phoneDisplay}
               </a>
             </p>
-            <p className="text-[#e2ddd9]/80">
+            <p className="text-[#e2ddd9]/80 leading-relaxed">
               <strong className="text-white font-medium block">Localização:</strong>
               {SITE_CONFIG.location}
             </p>
-            <p className="text-[#e2ddd9]/80">
+            <p className="text-[#e2ddd9]/80 leading-relaxed">
               <strong className="text-white font-medium block">Horário de Atendimento:</strong>
               Segunda a Sábado, das 09h às 19h
             </p>
@@ -100,9 +102,9 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#a8a39d] font-light space-y-3 sm:space-y-0">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#a8a39d] font-light space-y-2.5 sm:space-y-0 text-center sm:text-left">
           <p>© {new Date().getFullYear()} Ateliê Gorete Bordados. Todos os direitos reservados.</p>
-          <p className="flex items-center space-x-1">
+          <p className="flex items-center justify-center space-x-1">
             <span>Bordado com</span>
             <Heart className="w-3 h-3 text-[#8d7966] fill-[#8d7966]" />
             <span>para momentos inesquecíveis.</span>

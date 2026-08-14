@@ -46,6 +46,7 @@ body {
   color: #231e1a;
   min-height: 100vh;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Custom Editorial Styling & Shadows */
@@ -78,6 +79,16 @@ body {
 
 .slow-zoom-container:hover .slow-zoom-image {
   transform: scale(1.05);
+}
+
+/* Utility to hide scrollbar on mobile horizontal scrolling chips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Custom Scrollbar */

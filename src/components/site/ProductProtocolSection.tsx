@@ -37,30 +37,33 @@ export default function ProductProtocolSection({
   }, [items, selectedCategory, searchQuery]);
 
   return (
-    <section id="protocolos" className="w-full py-16 lg:py-24 bg-[#f8f1e9]">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+    <section id="protocolos" className="w-full py-12 sm:py-16 lg:py-24 bg-[#f8f1e9]">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
         {/* Editorial Protocol Header */}
-        <div className="flex flex-col space-y-3 mb-10 text-center sm:text-left">
-          <span className="font-serif italic text-[#8d7966] text-base lg:text-lg">
+        <div className="flex flex-col space-y-2.5 mb-6 sm:mb-10 text-center sm:text-left">
+          <span className="font-serif italic text-[#8d7966] text-sm sm:text-base lg:text-lg">
             02. O Catálogo de Peças & Protocolos de Confecção
           </span>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#231e1a] tracking-tight">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+            <h2 className="font-serif text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-normal text-[#231e1a] tracking-tight">
               Galeria de Obras do Ateliê
             </h2>
-            <span className="text-xs font-mono uppercase tracking-widest text-[#4a3f35]/70 bg-[#e2ddd9] px-3 py-1.5 rounded-full w-fit">
+            <span className="text-[11px] sm:text-xs font-mono uppercase tracking-widest text-[#4a3f35]/80 bg-[#e2ddd9] px-3 py-1 rounded-full w-fit mx-auto sm:mx-0">
               {filteredItems.length} {filteredItems.length === 1 ? "Peça disponível" : "Peças cadastradas"}
             </span>
           </div>
         </div>
 
-        {/* Filter Navigation Bar */}
-        <div id="galeria" className="mb-12 flex flex-wrap items-center gap-2 sm:gap-3 p-2 bg-[#e2ddd9]/60 rounded-[10px] border border-[#d8c8b8]">
+        {/* Filter Navigation Bar - Mobile-first horizontal scroll with hidden scrollbar */}
+        <div
+          id="galeria"
+          className="mb-8 sm:mb-12 flex items-center gap-2 overflow-x-auto p-1.5 sm:p-2 bg-[#e2ddd9]/60 rounded-[10px] border border-[#d8c8b8] -mx-4 px-4 sm:mx-0 no-scrollbar"
+        >
           <button
             onClick={() => onSelectCategory("todos")}
-            className={`px-4 py-2 text-xs font-medium uppercase tracking-wider rounded-[6px] transition-all duration-300 ${
+            className={`px-3.5 sm:px-4 py-2 text-[11px] sm:text-xs font-medium uppercase tracking-wider rounded-[6px] transition-all shrink-0 active:scale-95 ${
               selectedCategory === "todos"
-                ? "bg-[#8d7966] text-white shadow-sm"
+                ? "bg-[#8d7966] text-white shadow-xs"
                 : "text-[#4a3f35] hover:bg-white/60"
             }`}
           >
@@ -70,9 +73,9 @@ export default function ProductProtocolSection({
             <button
               key={cat.id}
               onClick={() => onSelectCategory(cat.id)}
-              className={`px-4 py-2 text-xs font-medium uppercase tracking-wider rounded-[6px] transition-all duration-300 ${
+              className={`px-3.5 sm:px-4 py-2 text-[11px] sm:text-xs font-medium uppercase tracking-wider rounded-[6px] transition-all shrink-0 active:scale-95 ${
                 selectedCategory === cat.id
-                  ? "bg-[#8d7966] text-white shadow-sm"
+                  ? "bg-[#8d7966] text-white shadow-xs"
                   : "text-[#4a3f35] hover:bg-white/60"
               }`}
             >
@@ -81,16 +84,19 @@ export default function ProductProtocolSection({
           ))}
         </div>
 
-        {/* 3-Column Product Grid */}
+        {/* 3-Column Product Grid (1 col mobile, 2 col tablet, 3 col desktop) */}
         {filteredItems.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredItems.map((item) => (
               <div
                 key={item.id}
                 className="bg-white rounded-[10px] border border-[#e2ddd9] overflow-hidden editorial-shadow-hover flex flex-col group"
               >
-                {/* Image Container with slow zoom */}
-                <div className="relative aspect-[4/3.8] w-full bg-[#e2ddd9] overflow-hidden slow-zoom-container">
+                {/* Image Container with touch-to-open lightbox */}
+                <div
+                  className="relative aspect-[4/3.6] sm:aspect-[4/3.8] w-full bg-[#e2ddd9] overflow-hidden slow-zoom-container cursor-pointer"
+                  onClick={() => onOpenLightbox(item)}
+                >
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -100,12 +106,12 @@ export default function ProductProtocolSection({
                   />
 
                   {/* Badges */}
-                  <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5">
-                    <span className="px-2.5 py-1 rounded-full bg-[#f8f1e9]/95 backdrop-blur-sm text-[10px] font-semibold tracking-wider uppercase text-[#4a3f35] border border-[#d8c8b8] shadow-xs">
+                  <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5 pointer-events-none">
+                    <span className="px-2.5 py-1 rounded-full bg-[#f8f1e9]/95 backdrop-blur-sm text-[10px] font-semibold tracking-wider uppercase text-[#4a3f35] border border-[#d8c8b8] shadow-2xs">
                       {item.categoryLabel}
                     </span>
                     {item.isHeroFeatured && (
-                      <span className="px-2.5 py-0.5 rounded-full bg-[#8d7966] text-[9px] font-semibold tracking-widest uppercase text-white shadow-xs">
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#8d7966] text-[9px] font-semibold tracking-widest uppercase text-white shadow-2xs">
                         Destaque
                       </span>
                     )}
@@ -113,21 +119,28 @@ export default function ProductProtocolSection({
 
                   {/* Lightbox Quick View */}
                   <button
-                    onClick={() => onOpenLightbox(item)}
-                    className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-[#f8f1e9]/90 backdrop-blur-sm border border-[#d8c8b8] flex items-center justify-center text-[#231e1a] opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-[#8d7966] hover:text-white"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onOpenLightbox(item);
+                    }}
+                    className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-[#f8f1e9]/95 backdrop-blur-sm border border-[#d8c8b8] flex items-center justify-center text-[#231e1a] sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 hover:bg-[#8d7966] hover:text-white"
                     title="Ampliar detalhes"
+                    aria-label="Ampliar foto"
                   >
                     <Eye className="w-4 h-4" />
                   </button>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <div className="flex flex-col space-y-2">
-                    <span className="text-[10px] font-mono tracking-widest text-[#8d7966] uppercase">
+                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="flex flex-col space-y-1.5 sm:space-y-2">
+                    <span className="text-[9px] sm:text-[10px] font-mono tracking-widest text-[#8d7966] uppercase">
                       {item.protocolNumber || "PROTOCOLO ARTESANAL"}
                     </span>
-                    <h3 className="font-serif text-xl font-medium text-[#231e1a] group-hover:text-[#8d7966] transition-colors leading-snug">
+                    <h3
+                      className="font-serif text-lg sm:text-xl font-medium text-[#231e1a] group-hover:text-[#8d7966] transition-colors leading-snug cursor-pointer"
+                      onClick={() => onOpenLightbox(item)}
+                    >
                       {item.title}
                     </h3>
                     <p className="text-xs text-[#4a3f35]/85 leading-relaxed line-clamp-2 font-normal">
@@ -152,9 +165,9 @@ export default function ProductProtocolSection({
                     href={buildProductWhatsAppUrl(item.title, item.categoryLabel)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full mt-2 py-3.5 px-4 bg-[#231e1a] hover:bg-[#8d7966] text-[#f8f1e9] text-xs font-semibold uppercase tracking-wider rounded-[6px] transition-all duration-300 flex items-center justify-center space-x-2 text-center"
+                    className="w-full mt-2 py-3.5 px-4 bg-[#231e1a] hover:bg-[#8d7966] active:scale-[0.98] text-[#f8f1e9] text-xs font-semibold uppercase tracking-wider rounded-[6px] transition-all duration-300 flex items-center justify-center space-x-2 text-center"
                   >
-                    <WhatsAppIcon className="w-4 h-4 text-[#d8c8b8]" />
+                    <WhatsAppIcon className="w-4 h-4 text-[#d8c8b8] shrink-0" />
                     <span>Encomendar Peça</span>
                     <span className="text-[#d8c8b8] opacity-60">|</span>
                     <span className="text-[11px] font-normal text-[#d8c8b8]">WhatsApp</span>
@@ -165,8 +178,8 @@ export default function ProductProtocolSection({
             ))}
           </div>
         ) : (
-          <div className="text-center py-16 bg-white/60 rounded-[10px] border border-[#d8c8b8] p-8">
-            <p className="text-base text-[#4a3f35] font-serif">Nenhuma peça encontrada nesta categoria.</p>
+          <div className="text-center py-12 sm:py-16 bg-white/60 rounded-[10px] border border-[#d8c8b8] p-6 sm:p-8">
+            <p className="text-sm sm:text-base text-[#4a3f35] font-serif">Nenhuma peça encontrada nesta categoria.</p>
             <button
               onClick={() => onSelectCategory("todos")}
               className="mt-4 px-5 py-2 bg-[#8d7966] text-white text-xs font-semibold uppercase tracking-wider rounded-md"

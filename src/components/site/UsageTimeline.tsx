@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Edit3, HeartHandshake, PackageCheck, Send, Sparkles } from "lucide-react";
+import { Check, Edit3, PackageCheck, Sparkles } from "lucide-react";
 
 export default function UsageTimeline() {
   const steps = [
@@ -46,35 +46,35 @@ export default function UsageTimeline() {
   ];
 
   return (
-    <section id="como-funciona" className="w-full py-16 lg:py-24 bg-[#f8f1e9] border-t border-[#e2ddd9]/80">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+    <section id="como-funciona" className="w-full py-12 sm:py-16 lg:py-24 bg-[#f8f1e9] border-t border-[#e2ddd9]/80">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col space-y-3">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#8d7966] font-semibold">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16 flex flex-col space-y-2.5">
+          <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#8d7966] font-semibold">
             03. JORNADA DE PERSONALIZAÇÃO
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#231e1a] tracking-tight">
+          <h2 className="font-serif text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-normal text-[#231e1a] tracking-tight">
             Como Funciona a Sua Encomenda
           </h2>
-          <p className="text-sm sm:text-base text-[#4a3f35]/85 font-light leading-relaxed">
+          <p className="text-xs sm:text-base text-[#4a3f35]/85 font-light leading-relaxed">
             Um processo transparente, ágil e acolhedor para que você receba uma peça única feita sob medida.
           </p>
         </div>
 
         {/* 3-Stage Timeline */}
         <div className="relative">
-          {/* Faint 1px horizontal connecting line (desktop only) */}
+          {/* Connecting line (desktop only) */}
           <div className="hidden md:block absolute top-7 left-[15%] right-[15%] h-[1px] bg-[#d8c8b8] z-0" />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative z-10">
-            {steps.map((step, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 relative z-10">
+            {steps.map((step) => (
               <div
                 key={step.stepNumber}
-                className="bg-white/80 rounded-[10px] p-6 lg:p-8 border border-[#e2ddd9] editorial-shadow flex flex-col items-center text-center group hover:border-[#8d7966] transition-all duration-300"
+                className="bg-white/90 rounded-[10px] p-6 lg:p-8 border border-[#e2ddd9] editorial-shadow flex flex-col items-center text-center group hover:border-[#8d7966] transition-all duration-300"
               >
                 {/* Centered Icon in Colored Circle */}
                 <div
-                  className={`w-14 h-14 rounded-full flex items-center justify-center ${step.iconBg} mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300`}
+                  className={`w-13 h-13 sm:w-14 sm:h-14 rounded-full flex items-center justify-center ${step.iconBg} mb-5 shadow-xs group-hover:scale-105 transition-transform duration-300`}
                 >
                   {step.icon}
                 </div>
@@ -83,18 +83,18 @@ export default function UsageTimeline() {
                   {step.stepNumber}
                 </span>
 
-                <h3 className="font-serif text-xl font-medium text-[#231e1a] mb-2 leading-snug">
+                <h3 className="font-serif text-lg sm:text-xl font-medium text-[#231e1a] mb-2 leading-snug">
                   {step.title}
                 </h3>
 
-                <p className="text-xs text-[#4a3f35]/80 mb-6 font-light">{step.description}</p>
+                <p className="text-xs text-[#4a3f35]/80 mb-5 font-light leading-relaxed">{step.description}</p>
 
                 {/* Bulleted List */}
-                <ul className="w-full text-left space-y-2.5 pt-4 border-t border-[#e2ddd9] text-xs text-[#4a3f35]/90">
+                <ul className="w-full text-left space-y-2 pt-4 border-t border-[#e2ddd9] text-xs text-[#4a3f35]/90">
                   {step.bullets.map((bullet, bIdx) => (
                     <li key={bIdx} className="flex items-start space-x-2">
                       <Check className="w-3.5 h-3.5 text-[#8d7966] shrink-0 mt-0.5" />
-                      <span>{bullet}</span>
+                      <span className="leading-snug">{bullet}</span>
                     </li>
                   ))}
                 </ul>

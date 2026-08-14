@@ -1,16 +1,51 @@
 import { isAuthenticated } from "@/lib/auth";
+import { handleUpload, type HandleUploadBody } from "@vercel/blob/client";
 import { put } from "@vercel/blob";
-import fs from "fs";
 import { NextRequest, NextResponse } from "next/server";
-import path from "path";
 
-export async function POST(req: NextRequest) {
+export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const authed = await isAuthenticated();
     if (!authed) {
       return NextResponse.json({ error: "Não autorizado" }, { status: 401 });
     }
 
+    const contentType = req.headers.get("content-type") || "";
+
+    // 1. Client-side upload token generation for @vercel/blob/client (Direct Browser to Vercel Blob)
+    if (contentType.includes("application/json")) {
+      const body = (await req.json()) as HandleUploadBody;
+
+      try {
+        const jsonResponse = await handleUpload({
+          body,
+          request: req,
+          onBeforeGenerateToken: async (pathname) => {
+            return {
+              allowedContentTypes: [
+                "image/jpeg",
+                "image/png",
+                "image/webp",
+                "image/gif",
+                "image/heic",
+              ],
+              tokenPayload: JSON.stringify({
+                uploadedAt: Date.now(),
+              }),
+            };
+          },
+          onUploadCompleted: async ({ blob }) => {
+            console.log("Upload completed to Vercel Blob:", blob.url);
+          },
+        });
+
+        return NextResponse.json(jsonResponse);
+      } catch (err: any) {
+        return NextResponse.json({ error: err.message }, { status: 400 });
+      }
+    }
+
+    // 2. Server-side FormData upload fallback
     const formData = await req.formData();
     const file = formData.get("file") as File | null;
 
@@ -18,13 +53,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Nenhum arquivo enviado" }, { status: 400 });
     }
 
-    const extension = path.extname(file.name) || ".jpg";
-    const cleanBaseName = file.name.replace(/[^a-zA-Z0-9]/g, "_").slice(0, 20);
-    const fileName = `${Date.now()}_${cleanBaseName}${extension}`;
-
-    // 1. If Vercel Blob Storage Token is available (Production on Vercel)
     if (process.env.BLOB_READ_WRITE_TOKEN) {
-      const blob = await put(`portfolio/${fileName}`, file, {
+      const extension = file.name.split(".").pop() || "jpg";
+      const cleanName = `${Date.now()}_upload.${extension}`;
+      const blob = await put(`portfolio/${cleanName}`, file, {
         access: "public",
         addRandomSuffix: true,
       });
@@ -32,33 +64,14 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({
         success: true,
         url: blob.url,
-        fileName,
+        fileName: cleanName,
         storage: "vercel-blob",
       });
     }
 
-    // 2. Local fallback for local development
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    const uploadsDir = path.join(process.cwd(), "public/uploads");
-    if (!fs.existsSync(uploadsDir)) {
-      fs.mkdirSync(uploadsDir, { recursive: true });
-    }
-
-    const filePath = path.join(uploadsDir, fileName);
-    fs.writeFileSync(filePath, buffer);
-
-    const publicUrl = `/uploads/${fileName}`;
-
-    return NextResponse.json({
-      success: true,
-      url: publicUrl,
-      fileName,
-      storage: "local",
-    });
-  } catch (err) {
-    console.error("Upload error:", err);
-    return NextResponse.json({ error: "Erro ao fazer upload da imagem" }, { status: 500 });
+    return NextResponse.json({ error: "Storage Vercel Blob não configurado" }, { status: 500 });
+  } catch (err: any) {
+    console.error("Upload route error:", err);
+    return NextResponse.json({ error: err.message || "Erro no upload" }, { status: 500 });
   }
 }

@@ -2,6 +2,7 @@
 
 import { CATEGORIES } from "@/lib/constants";
 import { PortfolioItem, ProductCategory } from "@/types/portfolio";
+import { upload } from "@vercel/blob/client";
 import {
   CheckCircle,
   Eye,
@@ -128,20 +129,29 @@ export default function AdminDashboardClient({ initialItems }: AdminDashboardCli
     try {
       // 1. Upload image if file selected
       if (selectedFile) {
-        const formData = new FormData();
-        formData.append("file", selectedFile);
+        try {
+          const newBlob = await upload(`portfolio/${selectedFile.name}`, selectedFile, {
+            access: "public",
+            handleUploadUrl: "/api/upload",
+          });
+          finalImageUrl = newBlob.url;
+        } catch (blobErr) {
+          console.warn("Vercel Blob client upload fallback to local API:", blobErr);
+          const formData = new FormData();
+          formData.append("file", selectedFile);
 
-        const uploadRes = await fetch("/api/upload", {
-          method: "POST",
-          body: formData,
-        });
+          const uploadRes = await fetch("/api/upload/local", {
+            method: "POST",
+            body: formData,
+          });
 
-        if (!uploadRes.ok) {
-          throw new Error("Erro no upload da imagem");
+          if (!uploadRes.ok) {
+            throw new Error("Erro no upload da imagem");
+          }
+
+          const uploadData = await uploadRes.json();
+          finalImageUrl = uploadData.url;
         }
-
-        const uploadData = await uploadRes.json();
-        finalImageUrl = uploadData.url;
       }
 
       // 2. Create portfolio item

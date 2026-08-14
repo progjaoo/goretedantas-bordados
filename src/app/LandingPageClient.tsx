@@ -9,7 +9,6 @@ import ProductProtocolSection from "@/components/site/ProductProtocolSection";
 import QualityTrustSection from "@/components/site/QualityTrustSection";
 import RegimenSelector from "@/components/site/RegimenSelector";
 import SafetyFAQSection from "@/components/site/SafetyFAQSection";
-import TestimonialsSection from "@/components/site/TestimonialsSection";
 import TopReassuranceStrip from "@/components/site/TopReassuranceStrip";
 import UsageTimeline from "@/components/site/UsageTimeline";
 import { PortfolioItem } from "@/types/portfolio";
@@ -73,9 +72,6 @@ export default function LandingPageClient({ initialItems }: LandingPageClientPro
 
         {/* Quality & Trust Manifesto (Full-bleed 2-column dark theme) */}
         <QualityTrustSection />
-
-        {/* Client Testimonials */}
-        <TestimonialsSection />
 
         {/* Safety & FAQ Section (5 cols Safety + 7 cols Accordion FAQ) */}
         <SafetyFAQSection />

@@ -1,9 +1,10 @@
 "use client";
 
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { CATEGORIES } from "@/lib/constants";
 import { buildProductWhatsAppUrl } from "@/lib/utils";
 import { PortfolioItem } from "@/types/portfolio";
-import { ArrowRight, CheckCircle2, Eye, Filter, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowRight, Eye } from "lucide-react";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 
@@ -146,13 +147,14 @@ export default function ProductProtocolSection({
                     </div>
                   </div>
 
-                  {/* Protocol CTA Button (Superdesign Special UI Component) */}
+                  {/* Protocol CTA Button */}
                   <a
                     href={buildProductWhatsAppUrl(item.title, item.categoryLabel)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full mt-2 py-3.5 px-4 bg-[#231e1a] hover:bg-[#8d7966] text-[#f8f1e9] text-xs font-semibold uppercase tracking-wider rounded-[6px] transition-all duration-300 flex items-center justify-center space-x-2 text-center"
                   >
+                    <WhatsAppIcon className="w-4 h-4 text-[#d8c8b8]" />
                     <span>Encomendar Peça</span>
                     <span className="text-[#d8c8b8] opacity-60">|</span>
                     <span className="text-[11px] font-normal text-[#d8c8b8]">WhatsApp</span>
@@ -173,61 +175,6 @@ export default function ProductProtocolSection({
             </button>
           </div>
         )}
-
-        {/* Superdesign Special Component: Craftsmanship & Material Fact Table */}
-        <div className="mt-20 p-8 sm:p-10 bg-[#e2ddd9]/70 rounded-[12px] border border-[#d8c8b8] relative overflow-hidden">
-          <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8">
-            {/* Left: Description */}
-            <div className="lg:w-1/3 flex flex-col space-y-3">
-              <span className="text-[10px] font-mono tracking-widest uppercase text-[#8d7966] font-semibold">
-                FICHA TÉCNICA DO ATELIÊ
-              </span>
-              <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#231e1a]">
-                Transparência nos Materiais & Acabamento
-              </h3>
-              <p className="text-xs sm:text-sm text-[#4a3f35]/90 leading-relaxed font-light">
-                Cada bordado nasce de um processo que alia a precisão das matrizes computadorizadas de alta
-                densidade à delicadeza do acabamento manual de costura.
-              </p>
-            </div>
-
-            {/* Right: Clinical / Craft Fact Table */}
-            <div className="lg:w-2/3 bg-white/90 rounded-[8px] p-6 sm:p-8 border border-[#d8c8b8]/80 shadow-sm font-mono text-xs text-[#231e1a]">
-              <div className="border-b border-[#d8c8b8] pb-3 mb-3 flex justify-between font-bold uppercase tracking-wider text-[#8d7966] text-[11px]">
-                <span>Componente / Matéria-Prima</span>
-                <span>Padrão do Ateliê Gorete</span>
-              </div>
-
-              <div className="divide-y divide-[#e2ddd9]">
-                <div className="py-2.5 flex justify-between items-center">
-                  <span className="font-normal text-[#4a3f35]">Gramatura das Toalhas</span>
-                  <span className="font-semibold">480g/m² a 500g/m² (100% Algodão Dohler / Karsten)</span>
-                </div>
-                <div className="py-2.5 flex justify-between items-center">
-                  <span className="font-normal text-[#4a3f35]">Linhas de Bordado</span>
-                  <span className="font-semibold">Poliéster Trilobal Ultra Brilho (Resistente a Lavagens)</span>
-                </div>
-                <div className="py-2.5 flex justify-between items-center">
-                  <span className="font-normal text-[#4a3f35]">Estrutura das Necessaires</span>
-                  <span className="font-semibold">Couro Sintético Nobre com Forro Impermeável Lavável</span>
-                </div>
-                <div className="py-2.5 flex justify-between items-center">
-                  <span className="font-normal text-[#4a3f35]">Guarnições & Rendas</span>
-                  <span className="font-semibold">Renda Richelieu, Guipir e Fitas de Cetim com Passa-Fita</span>
-                </div>
-                <div className="py-2.5 flex justify-between items-center">
-                  <span className="font-normal text-[#4a3f35]">Linha Infantil & Bebê</span>
-                  <span className="font-semibold">Materiais Hipoalergênicos e Toque Aveludado Pluma</span>
-                </div>
-              </div>
-
-              <div className="mt-4 pt-4 border-t border-[#d8c8b8] flex flex-wrap items-center justify-between text-[10px] text-[#8d7966] uppercase tracking-widest font-semibold">
-                <span>INTENCIONALMENTE LIVRE DE MATERIAIS SINTÉTICOS RÍGIDOS OU TINTAS QUE DESBOTAM</span>
-                <span className="text-[#4a3f35]">100% PERSONALIZADO</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

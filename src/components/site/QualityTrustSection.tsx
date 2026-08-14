@@ -1,7 +1,8 @@
 "use client";
 
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { buildWhatsAppUrl } from "@/lib/utils";
-import { Award, Feather, Heart, MessageCircle, ShieldCheck, Sparkles } from "lucide-react";
+import { Award, Feather, Heart, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 
 export default function QualityTrustSection() {
@@ -24,7 +25,7 @@ export default function QualityTrustSection() {
     {
       icon: <Heart className="w-5 h-5 text-[#d8c8b8]" />,
       title: "Feito com Dedicação Individual",
-      description: "Cada peça recebe arremate manual cuidadoso, perfumação suave e carinho em todas as etapas.",
+      description: "Cada peça recebe arremate manual cuidadoso e carinho em todas as etapas de produção.",
     },
   ];
 
@@ -41,10 +42,8 @@ export default function QualityTrustSection() {
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white leading-[1.15] tracking-tight">
                 O afeto está em cada <span className="italic text-[#d8c8b8]">ponto</span> bordado.
               </h2>
-              <p className="text-sm sm:text-base text-[#e2ddd9]/80 font-light leading-relaxed pt-2">
-                Sob o olhar atento e as mãos experientes da artesã Gorete, cada peça de tecido ganha vida.
-                Não entregamos apenas toalhas ou estojos; entregamos celebrações de bodas, acolhimento de novos
-                bebês e homenagens inesquecíveis.
+              <p className="text-sm sm:text-base text-[#e2ddd9]/90 font-light leading-relaxed pt-2">
+                Não entregamos apenas toalhas ou estojos; entregamos celebrações, acolhimento e homenagens inesquecíveis.
               </p>
             </div>
 
@@ -64,13 +63,13 @@ export default function QualityTrustSection() {
             {/* Contact CTA */}
             <div className="pt-4">
               <a
-                href={buildWhatsAppUrl("Olá, Gorete! Gostaria de conversar sobre uma ideia de bordado personalizado.")}
+                href={buildWhatsAppUrl("Olá, Gorete! Gostaria de conversar sobre uma encomenda de bordado personalizado.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-3 px-7 py-3.5 bg-[#8d7966] hover:bg-[#a8907b] text-white text-xs font-semibold uppercase tracking-widest rounded-md transition-all duration-300 shadow-md"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>Conversar com a Gorete no WhatsApp</span>
+                <WhatsAppIcon className="w-4 h-4 text-white" />
+                <span>Envie uma mensagem</span>
               </a>
             </div>
           </div>

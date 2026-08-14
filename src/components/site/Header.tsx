@@ -1,7 +1,8 @@
 "use client";
 
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { buildWhatsAppUrl } from "@/lib/utils";
-import { Menu, MessageCircle, Sparkles, X } from "lucide-react";
+import { Menu, Sparkles, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -70,12 +71,12 @@ export default function Header({ onOpenLoginModal }: HeaderProps) {
         {/* Right: Actions */}
         <div className="flex items-center space-x-4">
           <a
-            href={buildWhatsAppUrl("Olá, Dona Gorete! Gostaria de encomendar um bordado personalizado.")}
+            href={buildWhatsAppUrl("Olá, Gorete! Gostaria de encomendar um bordado personalizado.")}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 px-5 py-2.5 bg-[#8d7966] hover:bg-[#786655] text-[#f8f1e9] text-xs font-medium uppercase tracking-widest rounded-md shadow-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
           >
-            <MessageCircle className="w-4 h-4" />
+            <WhatsAppIcon className="w-4 h-4 text-white" />
             <span className="hidden sm:inline">Fazer Encomenda</span>
             <span className="sm:hidden">WhatsApp</span>
           </a>
@@ -111,7 +112,7 @@ export default function Header({ onOpenLoginModal }: HeaderProps) {
               rel="noopener noreferrer"
               className="flex items-center justify-center space-x-2 py-3.5 bg-[#8d7966] text-[#f8f1e9] text-xs uppercase tracking-widest font-semibold rounded-md shadow"
             >
-              <MessageCircle className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4 text-white" />
               <span>Chamar no WhatsApp (+55 24 99935-6139)</span>
             </a>
           </div>

@@ -1,8 +1,9 @@
 "use client";
 
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { buildProductWhatsAppUrl } from "@/lib/utils";
 import { PortfolioItem } from "@/types/portfolio";
-import { ArrowRight, Check, MessageCircle, X } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect } from "react";
 
@@ -125,12 +126,12 @@ export default function PhotoLightbox({ item, onClose }: PhotoLightboxProps) {
               rel="noopener noreferrer"
               className="w-full py-4 px-6 bg-[#8d7966] hover:bg-[#786655] text-white text-xs font-semibold uppercase tracking-widest rounded-md shadow-md flex items-center justify-center space-x-3 transition-all hover:scale-[1.01]"
             >
-              <MessageCircle className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4 text-white" />
               <span>Encomendar esta Peça no WhatsApp</span>
               <ArrowRight className="w-4 h-4" />
             </a>
             <span className="text-[10px] text-center block text-[#4a3f35]/70 mt-2">
-              Atendimento direto com a artesã Dona Gorete
+              Atendimento direto com a artesã Gorete
             </span>
           </div>
         </div>

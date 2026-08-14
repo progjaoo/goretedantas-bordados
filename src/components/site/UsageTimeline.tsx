@@ -32,11 +32,11 @@ export default function UsageTimeline() {
     },
     {
       stepNumber: "ETAPA 03",
-      title: "Embalagem Aromática & Envio",
-      description: "O carinho chega até a sua porta com todo o cuidado.",
+      title: "Embalagem & Envio",
+      description: "Sua encomenda pronta e enviada com segurança até você.",
       bullets: [
-        "Perfume suave especial do ateliê na peça",
-        "Embalagem delicada para presente com laço",
+        "Embalagem cuidadosa e reforçada para transporte",
+        "Opção de embalagem especial para presente",
         "Envio rápido e seguro via Correios / transportadora",
         "Código de rastreio enviado direto no seu WhatsApp",
       ],

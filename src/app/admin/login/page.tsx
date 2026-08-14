@@ -62,7 +62,7 @@ export default function AdminLoginPage() {
             PAINEL DO ATELIÊ
           </span>
           <h1 className="font-serif text-2xl sm:text-3xl font-medium text-[#231e1a]">
-            Acesso da Dona Gorete
+            Acesso da Gorete
           </h1>
           <p className="text-xs text-[#4a3f35]/80 font-light max-w-xs">
             Entre para adicionar novas fotos de trabalhos, editar descrições e gerenciar o catálogo.

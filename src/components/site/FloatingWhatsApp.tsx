@@ -1,7 +1,8 @@
 "use client";
 
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { buildWhatsAppUrl } from "@/lib/utils";
-import { MessageCircle, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function FloatingWhatsApp() {
@@ -30,7 +31,7 @@ export default function FloatingWhatsApp() {
           <div className="flex items-center space-x-2 mb-1">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="font-serif font-semibold text-[13px] text-[#8d7966]">
-              Dona Gorete
+              Gorete
             </span>
           </div>
           <p className="text-[11px] text-[#4a3f35] leading-relaxed">
@@ -39,9 +40,9 @@ export default function FloatingWhatsApp() {
         </div>
       )}
 
-      {/* Main WhatsApp Floating Button */}
+      {/* Main WhatsApp Floating Button with Official SVG */}
       <a
-        href={buildWhatsAppUrl("Olá, Dona Gorete! Estou no seu site e gostaria de tirar uma dúvida sobre os bordados.")}
+        href={buildWhatsAppUrl("Olá, Gorete! Estou no seu site e gostaria de tirar uma dúvida sobre os bordados.")}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chamar no WhatsApp (+55 24 99935-6139)"
@@ -50,7 +51,7 @@ export default function FloatingWhatsApp() {
         {/* Soft pulse ripple */}
         <span className="absolute -inset-1 rounded-full bg-[#25D366]/40 animate-ping pointer-events-none opacity-75" />
 
-        <MessageCircle className="w-7 h-7 fill-white text-[#25D366] relative z-10" />
+        <WhatsAppIcon className="w-7 h-7 text-white relative z-10" />
 
         {/* Text tag on hover (Desktop) */}
         <span className="hidden lg:block absolute right-16 bg-[#231e1a] text-white text-xs font-semibold px-3 py-1.5 rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none shadow-md">

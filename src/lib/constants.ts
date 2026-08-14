@@ -6,9 +6,9 @@ export const SITE_CONFIG = {
   tagline: "Bordados computadorizados & peças artesanais personalizadas",
   phoneDisplay: "+55 24 99935-6139",
   phoneNumber: "5524999356139",
-  instagram: "@goretebordados",
-  instagramUrl: "https://instagram.com",
-  location: "Petrópolis / RJ • Envios para todo o Brasil",
+  instagram: "@goretedantasbordados",
+  instagramUrl: "https://www.instagram.com/goretedantasbordados/",
+  location: "Volta Redonda - RJ • Envios para todo o Brasil",
 };
 
 export const COLOR_PALETTE = {
@@ -72,7 +72,7 @@ export const TESTIMONIALS: Testimonial[] = [
     clientName: "Mariana Albuquerque",
     city: "Rio de Janeiro, RJ",
     productPurchased: "Kit Luciana Floral (Toalha + Necessaire)",
-    comment: "O capricho da Dona Gorete é emocionante! O conjunto veio perfeitamente bordado, as cores da linha combinam perfeitamente e o cheirinho na embalagem foi um carinho à parte.",
+    comment: "O capricho da Gorete é emocionante! O conjunto veio perfeitamente bordado, as cores da linha combinam perfeitamente e o carinho na embalagem foi impecável.",
     rating: 5,
   },
   {
@@ -94,7 +94,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: "4",
     clientName: "Rodrigo Mendonça",
-    city: "Petrópolis, RJ",
+    city: "Volta Redonda, RJ",
     productPurchased: "Necessaire Masculina Couro Preto",
     comment: "Super estruturada e muito elegante. O zíper desliza perfeitamente e o bordado em ouro velho ficou muito discreto e sofisticado.",
     rating: 5,

@@ -1,8 +1,9 @@
 "use client";
 
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { buildProductWhatsAppUrl, buildWhatsAppUrl } from "@/lib/utils";
 import { PortfolioItem } from "@/types/portfolio";
-import { ArrowRight, ChevronLeft, ChevronRight, Eye, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Eye, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -70,12 +71,12 @@ export default function HeroSection({ featuredItems, onOpenLightbox }: HeroSecti
             {/* Button Group */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
               <a
-                href={buildWhatsAppUrl("Olá, Dona Gorete! Gostaria de fazer um orçamento para um bordado personalizado.")}
+                href={buildWhatsAppUrl("Olá, Gorete! Gostaria de fazer um orçamento para um bordado personalizado.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center space-x-3 px-8 py-4 bg-[#8d7966] hover:bg-[#786655] text-[#f8f1e9] text-xs font-semibold uppercase tracking-widest rounded-md shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
               >
-                <MessageCircle className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4 text-white" />
                 <span>Pedir Orçamento no WhatsApp</span>
               </a>
 
@@ -86,22 +87,6 @@ export default function HeroSection({ featuredItems, onOpenLightbox }: HeroSecti
                 <span>Ver Coleções</span>
                 <ArrowRight className="w-4 h-4 text-[#8d7966] group-hover:translate-x-1 transition-transform" />
               </a>
-            </div>
-
-            {/* Micro Trust Strip */}
-            <div className="pt-6 border-t border-[#d8c8b8]/60 grid grid-cols-3 gap-4 text-center sm:text-left">
-              <div>
-                <span className="block font-serif text-xl sm:text-2xl font-semibold text-[#8d7966]">100%</span>
-                <span className="text-[11px] text-[#4a3f35] font-medium tracking-wide uppercase">Algodão Nobre</span>
-              </div>
-              <div>
-                <span className="block font-serif text-xl sm:text-2xl font-semibold text-[#8d7966]">Anti</span>
-                <span className="text-[11px] text-[#4a3f35] font-medium tracking-wide uppercase">Alérgico & Seguro</span>
-              </div>
-              <div>
-                <span className="block font-serif text-xl sm:text-2xl font-semibold text-[#8d7966]">Brasil</span>
-                <span className="text-[11px] text-[#4a3f35] font-medium tracking-wide uppercase">Envio Seguro</span>
-              </div>
             </div>
           </div>
 

@@ -1,8 +1,9 @@
 "use client";
 
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { FAQS } from "@/lib/constants";
 import { buildWhatsAppUrl } from "@/lib/utils";
-import { Check, ChevronDown, HelpCircle, MessageCircle, ShieldCheck, Sparkles } from "lucide-react";
+import { Check, ChevronDown, HelpCircle, ShieldCheck } from "lucide-react";
 import { useState } from "react";
 
 export default function SafetyFAQSection() {
@@ -20,7 +21,7 @@ export default function SafetyFAQSection() {
           <div className="lg:col-span-5 flex flex-col space-y-6">
             <div className="flex flex-col space-y-2">
               <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-[#8d7966] font-semibold">
-                06. SEGURANÇA & DÚVIDAS
+                05. SEGURANÇA & DÚVIDAS
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#231e1a] tracking-tight">
                 Garantia de Qualidade & Atendimento Direto
@@ -58,12 +59,12 @@ export default function SafetyFAQSection() {
 
               <div className="pt-2">
                 <a
-                  href={buildWhatsAppUrl("Olá, Dona Gorete! Gostaria de tirar uma dúvida sobre uma encomenda personalizada.")}
+                  href={buildWhatsAppUrl("Olá, Gorete! Gostaria de tirar uma dúvida sobre uma encomenda personalizada.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-3 px-4 bg-[#8d7966] hover:bg-[#786655] text-white text-xs font-semibold uppercase tracking-wider rounded-md flex items-center justify-center space-x-2 transition-all shadow-sm"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <WhatsAppIcon className="w-4 h-4 text-white" />
                   <span>Tirar Dúvida no WhatsApp</span>
                 </a>
               </div>

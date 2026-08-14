@@ -35,7 +35,7 @@ export default async function AdminLayout({
 
         <div className="flex items-center space-x-3">
           <span className="text-xs text-[#4a3f35] hidden md:inline font-mono">
-            Conectada como: <strong className="text-[#8d7966]">Dona Gorete</strong>
+            Conectada como: <strong className="text-[#8d7966]">Gorete</strong>
           </span>
           <AdminLogoutButton />
         </div>

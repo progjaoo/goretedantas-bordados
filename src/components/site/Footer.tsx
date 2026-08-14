@@ -1,8 +1,9 @@
 "use client";
 
+import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 import { SITE_CONFIG } from "@/lib/constants";
 import { buildWhatsAppUrl } from "@/lib/utils";
-import { Heart, MessageCircle, Sparkles } from "lucide-react";
+import { Heart, Sparkles } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -31,14 +32,14 @@ export default function Footer() {
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#8d7966] flex items-center justify-center text-[#f8f1e9] transition-colors"
                 title="WhatsApp Ateliê Gorete"
               >
-                <MessageCircle className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4 text-white" />
               </a>
               <a
                 href={SITE_CONFIG.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#8d7966] flex items-center justify-center text-[#f8f1e9] transition-colors"
-                title="Instagram Ateliê Gorete"
+                title="Instagram @goretedantasbordados"
               >
                 <svg
                   className="w-4 h-4 fill-current"
